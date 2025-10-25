@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eco3R — Reduce • Reuse • Recycle</title>
+  <meta name="description" content="Website kampanye lingkungan berbasis 3R (Reduce, Reuse, Recycle). Open‑source, mobile‑friendly, bisa dipakai untuk tugas kuliah atau komunitas." />
+  <meta name="theme-color" content="#A3B18A" />
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23A3B18A'/><path d='M50 18 62 38H38L50 18zm-12 44 12 20 12-20H38zm-18-24 8 14h24L20 38zm68 0-32 14h24l8-14z' fill='white'/></svg>">
+  <style>
+    :root{ --sage:#A3B18A; --forest:#344E41; --moss:#588157; --cream:#F0F3ED; --ink:#0F1A14; --rounded:18px; --shadow:0 10px 30px rgba(0,0,0,.08); }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Noto Sans',sans-serif;color:var(--ink);background:var(--cream)}
+    a{color:var(--moss);text-decoration:none} a:hover{opacity:.85}
+    .container{max-width:1080px;margin:auto;padding:0 20px}
+    header{position:sticky;top:0;backdrop-filter:saturate(180%) blur(10px);background:rgba(240,243,237,.85);z-index:50;border-bottom:1px solid rgba(0,0,0,.05)}
+    nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:800}
+    .brand-badge{width:34px;height:34px;border-radius:50%;background:var(--sage);display:grid;place-items:center;color:white;font-weight:900}
+    .navlinks{display:flex;gap:16px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;border:1px solid rgba(0,0,0,.08);box-shadow:var(--shadow);background:white}
+    .btn-primary{background:var(--sage);color:white;border-color:transparent}
+    .hero{padding:56px 0 24px}
+    .hero .wrap{display:grid;gap:28px;grid-template-columns:1.2fr .8fr}
+    @media (max-width:860px){.hero .wrap{grid-template-columns:1fr}}
+    .card{background:white;border-radius:var(--rounded);padding:20px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.06)}
+    .kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    @media (max-width:680px){.kpi{grid-template-columns:1fr 1fr}}
+    .kpi .item{background:var(--forest);color:white;border-radius:16px;padding:14px;text-align:center}
+    h1{font-size:40px;line-height:1.15;margin:0}
+    h2{font-size:28px;margin:28px 0 10px} h3{margin:16px 0 6px}
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(3,1fr)}
+    @media (max-width:900px){.grid{grid-template-columns:1fr 1fr}}
+    @media (max-width:620px){.grid{grid-template-columns:1fr}}
+    .tag{display:inline-block;background:var(--cream);border:1px dashed var(--moss);padding:4px 10px;border-radius:999px;font-size:12px}
+    .section{padding:30px 0} .list-check li{margin:8px 0}
+    .accordion details{border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:10px;background:white}
+    .accordion details+details{margin-top:10px}
+    footer{margin-top:30px;padding:28px 0;color:#3a3a3a;border-top:1px solid rgba(0,0,0,.06)}
+    .muted{opacity:.8} .notice{border-left:4px solid var(--sage);padding:10px 14px;background:#f7faf6;border-radius:12px}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:#e7efe6;font-size:13px}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .progress{height:10px;background:#e9efe7;border-radius:999px;overflow:hidden}
+    .progress>div{height:100%;background:linear-gradient(90deg,var(--sage),var(--moss));width:0}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">
+          <div class="brand-badge" aria-hidden="true">3R</div>
+          <span>Eco3R</span>
+        </div>
+        <div class="navlinks" role="navigation" aria-label="Navigasi utama">
+          <a href="#tentang">Tentang</a>
+          <a href="#reduce">Reduce</a>
+          <a href="#reuse">Reuse</a>
+          <a href="#recycle">Recycle</a>
+          <a href="#aksi" class="btn btn-primary">Ikut Aksi</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container wrap">
+        <div class="card">
+          <p class="pill">🌿 Kampanye Lingkungan • Open‑Source</p>
+          <h1>Reduce • Reuse • Recycle<br/>Gerak kecil, dampak besar.</h1>
+          <p class="muted">Eco3R adalah website kampanye lingkungan untuk menggerakkan aksi sederhana yang dapat dilakukan siapa pun, di mana pun. Cocok untuk tugas kuliah, komunitas sekolah, hingga program RT/RW.</p>
+          <div class="kpi" aria-live="polite">
+            <div class="item"><div style="font-size:28px;font-weight:800" id="pledgeCount">0</div><div>Janji Aksi</div></div>
+            <div class="item"><div style="font-size:28px;font-weight:800" id="plastikSaved">0</div><div>Botol Dihemat</div></div>
+            <div class="item"><div style="font-size:28px;font-weight:800" id="kgReduced">0</div><div>Kg Sampah Dikurangi</div></div>
+          </div>
+          <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn" href="#quiz">Ikuti Kuis 3R</a>
+            <button class="btn" id="shareBtn" type="button">Bagikan</button>
+          </div>
+        </div>
+        <div class="card">
+          <img alt="Ilustrasi daur ulang" src="data:image/svg+xml;utf8,<?xml version='1.0' encoding='UTF-8'?><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 220'><defs><linearGradient id='g' x1='0' x2='1'><stop offset='0' stop-color='%23A3B18A'/><stop offset='1' stop-color='%23588157'/></linearGradient></defs><rect width='100%' height='100%' fill='%23F0F3ED'/><g transform='translate(0,10)'><circle cx='180' cy='100' r='90' fill='url(%23g)'/><g fill='white'><path d='M180 20l18 30h-36l18-30z'/><path d='M110 90l31 15-18 31-13-46z'/><path d='M220 170l-31-15 18-31 13 46z'/></g></g></svg>" style="width:100%;border-radius:12px"/>
+          <p class="muted" style="margin-top:8px">Desain minimalis ramah mata, siap dipakai di HP.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tentang" class="section">
+      <div class="container">
+        <div class="grid">
+          <div class="card">
+            <h2>Apa itu 3R?</h2>
+            <p>3R adalah prinsip pengelolaan sampah berkelanjutan: <strong>Reduce</strong> (Mengurangi), <strong>Reuse</strong> (Menggunakan kembali), dan <strong>Recycle</strong> (Mendaur ulang). Tujuannya menekan volume sampah ke TPA sekaligus menghemat sumber daya.</p>
+            <ul class="list-check">
+              <li>Reduce: cegah sampah dari sumbernya.</li>
+              <li>Reuse: perpanjang usia pakai barang.</li>
+              <li>Recycle: ubah jadi material/produk baru.</li>
+            </ul>
+            <p class="notice">Tip cepat: mulai dari satu kebiasaan dulu—misalnya bawa botol minum isi ulang.</p>
+          </div>
+          <div class="card">
+            <h2>Checklist Audit Sampah</h2>
+            <p class="muted">Centang kebiasaan yang sudah kamu lakukan. Tersimpan otomatis (perangkat ini).</p>
+            <div class="accordion" id="auditList">
+              <details><summary>Minuman kemasan harian</summary>
+                <label><input type="checkbox" data-key="botol_isi_ulang"> Pakai botol minum isi ulang</label><br/>
+                <label><input type="checkbox" data-key="beli_galon"> Beli galon besar, hindari botol kecil</label>
+              </details>
+              <details><summary>Makanan & belanja</summary>
+                <label><input type="checkbox" data-key="bawa_tas_belanja"> Bawa tas belanja kain</label><br/>
+                <label><input type="checkbox" data-key="tolak_sedotan"> Tolak sedotan sekali pakai</label>
+              </details>
+              <details><summary>Rumah & kampus</summary>
+                <label><input type="checkbox" data-key="pisah_organik"> Pisahkan organik & anorganik</label><br/>
+                <label><input type="checkbox" data-key="kompos_mudah"> Coba kompos metode pot (ember)</label>
+              </details>
+            </div>
+          </div>
+          <div class="card">
+            <h2>Hitung Dampakmu</h2>
+            <p class="muted">Perkiraan kasar untuk motivasi (bukan angka resmi).</p>
+            <label>Botol plastik yang dihindari per minggu: <input id="inpBotol" type="number" min="0" value="0" style="width:90px;margin-left:6px"></label><br/>
+            <label>Sampah (kg) yang dikurangi per minggu: <input id="inpKg" type="number" min="0" step="0.1" value="0" style="width:90px;margin-left:6px"></label>
+            <div class="progress" style="margin:12px 0"><div id="bar"></div></div>
+            <button class="btn btn-primary" id="btnHitung">Simpan & Update KPI</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reduce" class="section">
+      <div class="container">
+        <h2>Reduce — Kurangi dari Sumbernya</h2>
+        <div class="grid">
+          <div class="card"><h3>Belanja Pintar</h3><p>Pilih produk isi ulang/curah, kemasan jumbo, dan hindari bonus sampah (plastik ekstra). Bawa daftar belanja agar tidak impulsif.</p></div>
+          <div class="card"><h3>Digital‑First</h3><p>Gunakan dokumen digital; cetak hanya yang wajib. Gunakan dua sisi kertas dan atur margin/ukuran font yang efisien.</p></div>
+          <div class="card"><h3>Hemat Makanan</h3><p>Rencanakan menu mingguan, simpan bahan dengan benar, dan olah sisa jadi hidangan baru agar tidak jadi sampah organik.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reuse" class="section" style="background:#eef3ea">
+      <div class="container">
+        <h2>Reuse — Pakai Ulang Kreatif</h2>
+        <div class="grid">
+          <div class="card"><h3>Wadah Serbaguna</h3><p>Gunakan kembali stoples kaca, kardus, dan kotak makan. Labeli agar rapi.</p></div>
+          <div class="card"><h3>Perbaiki, Bukan Buang</h3><p>Belajar dasar menjahit, lem kayu, atau servis elektronik ringan untuk memperpanjang usia barang.</p></div>
+          <div class="card"><h3>Bank Barang</h3><p>Adakan swap party atau donasi ke komunitas. Barangmu bisa jadi harta bagi orang lain.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="recycle" class="section">
+      <div class="container">
+        <h2>Recycle — Daur Ulang Bertanggung Jawab</h2>
+        <div class="grid">
+          <div class="card"><h3>Pilah yang Benar</h3><p>Bersihkan kemasan, keringkan, dan pipihkan. Campuran sisa makanan menghambat daur ulang.</p></div>
+          <div class="card"><h3>Kenali Kode Plastik</h3><p>01 PET & 02 HDPE paling umum didaur ulang. Hindari 07 (lain‑lain) jika memungkinkan.</p></div>
+          <div class="card"><h3>Setor ke Fasilitas</h3><p>Cari bank sampah/TPST terdekat, atau jadwalkan penjemputan ke komunitas daur ulang lokal.</p></div>
+        </div>
+        <p class="muted">Catatan: kebijakan bisa berbeda tiap daerah. Cek peraturan setempat.</p>
+      </div>
+    </section>
+
+    <section id="quiz" class="section" style="background:#eef3ea">
+      <div class="container">
+        <h2>Kuis Cepat 3R</h2>
+        <div class="card" id="quizBox" aria-live="polite">
+          <ol id="qList"></ol>
+          <button class="btn btn-primary" id="submitQuiz">Kumpulkan Jawaban</button>
+          <p id="quizResult" class="notice" style="display:none;margin-top:12px"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="aksi" class="section">
+      <div class="container">
+        <h2>Ikut Aksi: Janji 7 Hari</h2>
+        <div class="card">
+          <form id="pledgeForm">
+            <label class="sr-only" for="nama">Nama</label>
+            <input id="nama" name="nama" placeholder="Nama" style="padding:10px;border-radius:10px;border:1px solid #ccd2cc;width:100%;max-width:420px" required>
+            <div style="height:8px"></div>
+            <label class="sr-only" for="aksi">Aksi</label>
+            <input id="aksi1" name="aksi" placeholder="Contoh: bawa botol isi ulang setiap hari" style="padding:10px;border-radius:10px;border:1px solid #ccd2cc;width:100%;max-width:420px" required>
+            <div style="height:8px"></div>
+            <button class="btn btn-primary" type="submit">Simpan Janji</button>
+            <button class="btn" type="button" id="clearPledge">Hapus Semua</button>
+          </form>
+          <div id="pledgeList" style="margin-top:14px"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between">
+        <p class="muted">© <span id="year"></span> Eco3R • Lisensi MIT • Dibuat dengan teknologi web terbuka (HTML, CSS, JS). </p>
+        <div>
+          <a class="tag" href="#tentang" aria-label="Kembali ke atas">⬆️ Kembali ke atas</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const $ = (sel, el=document) => el.querySelector(sel);
+    const $$ = (sel, el=document) => [...el.querySelectorAll(sel)];
+    const ls = (k, v) => v === undefined ? JSON.parse(localStorage.getItem(k) || 'null') : localStorage.setItem(k, JSON.stringify(v));
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.addEventListener('click', async (e)=>{
+      if(e.target && e.target.id==='shareBtn'){
+        const shareData = {title:'Eco3R', text:'Yuk ikut kampanye 3R! Gerak kecil, dampak besar.', url: location.href};
+        if (navigator.share) { try { await navigator.share(shareData); } catch(err){} }
+        else { navigator.clipboard.writeText(location.href); alert('Link disalin!'); }
+      }
+    });
+
+    const kpi = ls('eco3r:kpi') || {pledge:0, botol:0, kg:0};
+    const syncKpi = () => {
+      const x = (q)=>document.getElementById(q);
+      x('pledgeCount').textContent = kpi.pledge;
+      x('plastikSaved').textContent = kpi.botol;
+      x('kgReduced').textContent = (kpi.kg||0).toFixed(1);
+      const bar = document.getElementById('bar'); if(bar) bar.style.width = Math.min(100, (kpi.botol*2 + (kpi.kg||0)*10)) + '%';
+    };
+    syncKpi();
+
+    document.getElementById('btnHitung').addEventListener('click', ()=>{
+      const b = Math.max(0, Number(document.getElementById('inpBotol').value||0));
+      const kg = Math.max(0, Number(document.getElementById('inpKg').value||0));
+      kpi.botol = b; kpi.kg = kg; ls('eco3r:kpi', kpi); syncKpi();
+    });
+
+    const checks = document.querySelectorAll('#auditList input[type="checkbox"]');
+    const auditState = ls('eco3r:audit') || {};
+    checks.forEach(chk=>{ chk.checked = !!auditState[chk.dataset.key]; chk.addEventListener('change', () => { auditState[chk.dataset.key] = chk.checked; ls('eco3r:audit', auditState); }); });
+
+    const renderPledges = () => {
+      const list = ls('eco3r:pledges') || [];
+      const box = document.getElementById('pledgeList');
+      box.innerHTML = '';
+      if (!list.length){ box.innerHTML = '<p class="muted">Belum ada janji. Jadilah yang pertama! ✨</p>'; return; }
+      list.forEach((p, i)=>{
+        const div = document.createElement('div');
+        div.className = 'card';
+        div.style.marginTop = '8px';
+        div.innerHTML = `<strong>${p.nama}</strong> — ${p.aksi}<br><span class="muted">Tgl: ${new Date(p.tanggal).toLocaleDateString()}</span>`;
+        const del = document.createElement('button');
+        del.className = 'btn'; del.textContent = 'Hapus'; del.style.marginTop = '8px';
+        del.addEventListener('click', ()=>{ const arr = ls('eco3r:pledges')||[]; arr.splice(i,1); ls('eco3r:pledges', arr); kpi.pledge = Math.max(0, kpi.pledge-1); ls('eco3r:kpi', kpi); syncKpi(); renderPledges(); });
+        div.appendChild(del);
+        box.appendChild(div);
+      });
+    };
+    renderPledges();
+
+    document.getElementById('pledgeForm').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const nama = document.getElementById('nama').value.trim();
+      const aksi = document.getElementById('aksi1').value.trim();
+      if(!nama || !aksi) return;
+      const list = ls('eco3r:pledges') || [];
+      list.push({nama, aksi, tanggal: Date.now()});
+      ls('eco3r:pledges', list);
+      kpi.pledge += 1; ls('eco3r:kpi', kpi); syncKpi();
+      document.getElementById('pledgeForm').reset();
+      renderPledges();
+    });
+
+    const soals = [
+      {t:'Prinsip 3R yang mencegah sampah sejak awal adalah…', a:['Reduce','Reuse','Recycle'], k:0},
+      {t:'Plastik yang paling umum didaur ulang adalah kode…', a:['05 PP','07 Lain‑lain','01 PET'], k:2},
+      {t:'Kemasan sebelum didaur ulang sebaiknya…', a:['Dilipat & dicuci','Dibakar','Dibuang apa adanya'], k:0},
+      {t:'Contoh Reuse adalah…', a:['Beli air botolan tiap hari','Menggunakan stoples bekas sebagai wadah','Membuang kardus ke TPA'], k:1},
+      {t:'Memisahkan organik & anorganik termasuk langkah…', a:['Reduce','Reuse','Recycle'], k:2}
+    ];
+    const qList = document.getElementById('qList');
+    soals.forEach((q, i)=>{
+      const li = document.createElement('li');
+      li.innerHTML = `<p><strong>${q.t}</strong></p>` + q.a.map((opt,j)=>`<label style="display:block"><input type="radio" name="q${i}" value="${j}"> ${opt}</label>`).join('');
+      qList.appendChild(li);
+    });
+    document.getElementById('submitQuiz').addEventListener('click', ()=>{
+      let benar=0,total=soals.length;
+      soals.forEach((q,i)=>{ const sel = document.querySelector(`input[name=q${i}]:checked`); if(sel && Number(sel.value)===q.k) benar++; });
+      const r = document.getElementById('quizResult');
+      r.style.display='block';
+      r.textContent = `Skor kamu ${benar}/${total}. ${benar===total?'Sempurna! 🌟':'Mantap! Tingkatkan lagi kebiasaan 3R‑mu.'}`;
+    });
+
+    if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js'); }
+  </script>
+</body>
+</html>
